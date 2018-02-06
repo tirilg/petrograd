@@ -1,5 +1,6 @@
 const template = document.querySelector("template").content;
 const main = document.querySelector("main");
+const nav = document.querySelector("#filter");
 const catLink = "http://kea-alt-del.dk/t5/api/categories";
 const pListLink = "http://kea-alt-del.dk/t5/api/productlist";
 const imgLink = "http://kea-alt-del.dk/t5/site/imgs/";
@@ -8,17 +9,39 @@ const imgLink = "http://kea-alt-del.dk/t5/site/imgs/";
 fetch(catLink).then(result => result.json()).then(data => createCatContainers(data));
 
 function createCatContainers(categories) {
+    categories.unshift("menu");
     categories.forEach(category => {
         const section = document.createElement("section");
+        const a = document.createElement("a");
+        a.textContent = category;
+        a.href = "#";
+        a.addEventListener("click", function (event) {
+            event.preventDefault()
+            filter(category);
+        });
+        nav.appendChild(a);
         const h2 = document.createElement("h2");
         section.id = category;
         h2.textContent = category;
         section.appendChild(h2);
         main.appendChild(section);
     });
-
     fetch(pListLink).then(result => result.json()).then(data => showProducts(data));
 }
+
+function filter(myFilter) {
+    console.log(myFilter);
+    document.querySelectorAll("main section").forEach(section => {
+        if (section.id == myFilter) {
+            section.classList.remove("hide");
+        } else {
+            section.classList.add("hide");
+        }
+    })
+
+
+}
+
 
 function showProducts(data) {
     data.forEach(elem => {
@@ -38,7 +61,20 @@ function showProducts(data) {
 
         if (elem.alcohol) {
             const newImage = document.createElement("img")
+            newImage.setAttribute("src", "images/alcohol.png");
+            newImage.setAttribute("alt", "Contains alcohol " + elem.alcohol + "%");
+            newImage.setAttribute("title", "Contains alcohol " + elem.alcohol + "%");
+            clone.querySelector(".icons").appendChild(newImage);
         }
+
+        if (elem.vegetarian) {
+            const newImage = document.createElement("img");
+            newImage.setAttribute("src", "images/vegetarian.png");
+            newImage.setAttribute("alt", "This dish is vegetarian");
+            newImage.setAttribute("title", "This dish is vegetarian");
+            clone.querySelector(".icons").appendChild(newImage)
+        }
+
         section.appendChild(clone);
     })
 }

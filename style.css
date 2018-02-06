@@ -25,6 +25,7 @@ main section {
 section h2 {
     grid-column: 1/-1;
     text-align: center;
+    font-size: 1.3em;
 }
 
 /*    navigation .   */
@@ -66,6 +67,23 @@ input:checked ~ .menu {
 
 }
 
+#filter a {
+    padding: 1em;
+    text-decoration: none;
+    color: black;
+}
+
+#filter a:hover {
+    color: gray;
+    transition: 1s ease;
+    cursor: pointer;
+}
+
+#filter {
+    text-align: center;
+    padding: 2em;
+}
+
 .menu a {
     color: black;
     display: block;
@@ -83,10 +101,13 @@ input:checked ~ .menu {
 
 .dishes {
     text-align: center;
+    font-size: 3em
 }
 
 article > img {
     width: 100%;
+    overflow: hidden;
+    border: 2px white solid;
 }
 
 
@@ -98,6 +119,7 @@ article > img {
 
 .header img {
     width: 200%;
+    padding-bottom: 5em;
 }
 
 section {
@@ -107,6 +129,12 @@ section {
 article {
     padding: 1em;
     position: relative;
+    background: rgba(213, 217, 213, 0.2);
+    text-align: center;
+}
+
+p {
+    font-size: 0.8em;
 }
 
 /*   prices    */
@@ -122,14 +150,26 @@ article {
 
 .price {
     left: 0;
-    background: rgba(255, 255, 255, .8);
+    background: rgba(255, 255, 255, 1);
 }
 
 .discountprice {
-    left: 0;
-    top: 2.2em;
+    left: 2.8em;
+    top: 0;
     background: yellowgreen;
 
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+
+/* icons .  */
+
+.icons img {
+    width: 15%;
+    padding: 2em;
 }
 
 /*      foooter     */
