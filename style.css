@@ -5,8 +5,8 @@ html,
 body {
     margin: 0;
     font-family: 'montserrat', sans-serif;
-    overflow-x: hidden;
     max-width: 100%;
+    background: rgba(213, 217, 213, 0.2);
 }
 
 .hide {
@@ -73,10 +73,15 @@ input:checked ~ .menu {
 
 /*       categories      */
 
+h2 {
+    text-transform: capitalize;
+}
+
 #filter a {
     padding: 1.4em;
     text-decoration: none;
     color: black;
+    text-transform: capitalize;
 }
 
 #filter a:hover {
@@ -102,6 +107,18 @@ input:checked ~ .menu {
     transition: 0.8s ease;
 }
 
+/*    top    */
+
+.logo {
+    float: left;
+    display: inline-block;
+    padding-left: 0.5em;
+}
+
+.header img {
+    width: 100%;
+    padding-bottom: 5em;
+}
 
 /*    index page .   */
 
@@ -112,35 +129,37 @@ input:checked ~ .menu {
 
 article > img {
     width: 100%;
-    overflow: hidden;
     border: 2px white solid;
 }
 
-
-.logo {
-    float: left;
-    display: inline-block;
-    padding-left: 0.5em;
-}
-
-.header img {
-    width: 200%;
-    padding-bottom: 5em;
-}
 
 section {
     padding: 1em;
 }
 
 article {
-    padding: 1em;
+    padding: 0.8em;
     position: relative;
-    background: rgba(213, 217, 213, 0.2);
+    background: rgba(255, 255, 255, 0.5);
     text-align: center;
 }
 
 p {
     font-size: 0.8em;
+}
+
+button {
+    padding: 1em;
+    background: rgba(213, 217, 213, 0.2);
+    font-family: montserrat, sans-serif;
+    font-size: 0.8em;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background: darkgray;
+    transition: 1s ease;
 }
 
 /*   prices    */
@@ -151,7 +170,7 @@ p {
     top: 0;
     margin: 0;
     padding: 0.5em;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 
 .price {
@@ -174,7 +193,7 @@ p {
 /* icons .  */
 
 .icons img {
-    width: 15%;
+    width: 10%;
     padding: 2em;
 }
 
@@ -212,6 +231,7 @@ footer {
     margin: auto;
     background: #fff;
     overflow-y: scroll;
+    margin-top: 5em;
 }
 
 aside img {
@@ -256,4 +276,5 @@ aside p {
     /* .      header image .   */
     .header img {
         width: 100%;
+        overflow: hidden;
     }

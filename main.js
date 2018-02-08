@@ -80,8 +80,8 @@ function showProducts(data) {
         if (elem.alcohol) {
             const newImage = document.createElement("img")
             newImage.setAttribute("src", "images/alcohol.png");
-            newImage.setAttribute("alt", "Contains alcohol " + elem.alcohol + "%");
-            newImage.setAttribute("title", "Contains alcohol " + elem.alcohol + "%");
+            newImage.setAttribute("alt", "Contains alcohol: " + elem.alcohol + "%");
+            newImage.setAttribute("title", "Contains alcohol: " + elem.alcohol + "%");
             clone.querySelector(".icons").appendChild(newImage);
         }
 
@@ -91,6 +91,16 @@ function showProducts(data) {
             newImage.setAttribute("alt", "This dish is vegetarian");
             newImage.setAttribute("title", "This dish is vegetarian");
             clone.querySelector(".icons").appendChild(newImage)
+        }
+
+        if (elem.soldout) {
+            const newImage = document.createElement("img");
+            newImage.setAttribute("src", "images/soldout.png");
+            newImage.setAttribute("alt", "This dish is sold out");
+            newImage.setAttribute("title", "This dish is sold out");
+
+            clone.querySelector(".icons").appendChild(newImage);
+
         }
 
         section.appendChild(clone);
