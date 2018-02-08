@@ -144,7 +144,12 @@ article {
     text-align: center;
 }
 
-p {
+article h2 {
+    padding: 1em;
+}
+
+article p {
+    padding: 1em;
     font-size: 0.8em;
 }
 
