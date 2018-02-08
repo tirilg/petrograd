@@ -68,7 +68,7 @@ input:checked ~ .menu {
 }
 
 #filter a {
-    padding: 1em;
+    padding: 1.4em;
     text-decoration: none;
     color: black;
 }
@@ -187,6 +187,25 @@ footer {
     width: 20%;
 }
 
+
+
+/*    modal    */
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .7);
+}
+
+#modal aside {
+    width: 80vw;
+    height: 80vh;
+    margin: auto;
+    background: #fff;
+}
 
 /* .       desktop .       */
 

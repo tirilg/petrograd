@@ -1,15 +1,17 @@
 const template = document.querySelector("template").content;
 const main = document.querySelector("main");
 const nav = document.querySelector("#filter");
+const modal = document.querySelector("#modal");
 const catLink = "http://kea-alt-del.dk/t5/api/categories";
 const pListLink = "http://kea-alt-del.dk/t5/api/productlist";
+const pLink = "http://kea-alt-del.dk/t5/api/product?id=";
 const imgLink = "http://kea-alt-del.dk/t5/site/imgs/";
 
+modal.addEventListener("click", () => modal.classList.add("hide"))
 
 fetch(catLink).then(result => result.json()).then(data => createCatContainers(data));
 
 function createCatContainers(categories) {
-    categories.unshift("menu");
     categories.forEach(category => {
         const section = document.createElement("section");
         const a = document.createElement("a");
@@ -42,15 +44,29 @@ function filter(myFilter) {
 
 }
 
+function showDetails(product) {
+    console.log(product);
+    modal.querySelector("h1").textContent = product.name;
+    modal.querySelector("p").textContent = product.longdescription;
+    modal.classList.remove("hide");
+
+}
 
 function showProducts(data) {
     data.forEach(elem => {
+        console.log(elem);
         const section = document.querySelector("#" + elem.category);
         const clone = template.cloneNode(true);
         clone.querySelector("img").src = "http://kea-alt-del.dk/t5/site/imgs/small/" + elem.image + "-sm.jpg";
         clone.querySelector("h2").textContent = elem.name;
         clone.querySelector("p").textContent = elem.shortdescription;
         clone.querySelector(".price span").textContent = elem.price;
+
+        /* modal */
+        clone.querySelector("button").addEventListener("click", () => {
+            fetch(pLink + elem.id).then(result => result.json()).then(product => showDetails(product));
+
+        })
 
         if (elem.discount) {
             const newPrice = Math.ceil(elem.price - elem.price * elem.discount / 100);
