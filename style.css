@@ -22,6 +22,10 @@ main section {
 
 }
 
+main #menu {
+    display: none;
+}
+
 section h2 {
     grid-column: 1/-1;
     text-align: center;
@@ -66,6 +70,8 @@ input:checked ~ .menu {
     float: right;
 
 }
+
+/*       categories      */
 
 #filter a {
     padding: 1.4em;
@@ -205,9 +211,24 @@ footer {
     height: 80vh;
     margin: auto;
     background: #fff;
+    overflow-y: scroll;
 }
 
-/* .       desktop .       */
+aside img {
+    width: 100%;
+}
+
+aside h1 {
+    text-align: center;
+    padding: 1.3em;
+}
+
+aside p {
+    text-align: center;
+    padding: 3em;
+}
+
+/* .       desktop version       */
 
 @media all and (min-width:35em) {
 

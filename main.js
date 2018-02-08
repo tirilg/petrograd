@@ -12,6 +12,7 @@ modal.addEventListener("click", () => modal.classList.add("hide"))
 fetch(catLink).then(result => result.json()).then(data => createCatContainers(data));
 
 function createCatContainers(categories) {
+    categories.unshift("menu");
     categories.forEach(category => {
         const section = document.createElement("section");
         const a = document.createElement("a");
@@ -34,7 +35,7 @@ function createCatContainers(categories) {
 function filter(myFilter) {
     console.log(myFilter);
     document.querySelectorAll("main section").forEach(section => {
-        if (section.id == myFilter) {
+        if (section.id == myFilter || myFilter == "menu") {
             section.classList.remove("hide");
         } else {
             section.classList.add("hide");
@@ -49,6 +50,7 @@ function showDetails(product) {
     modal.querySelector("h1").textContent = product.name;
     modal.querySelector("p").textContent = product.longdescription;
     modal.classList.remove("hide");
+    modal.querySelector("img").src = imgLink + "medium/" + product.image + "-md.jpg";
 
 }
 
